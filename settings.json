@@ -11,7 +11,7 @@
           }
         },
         "whatsapp": {
-              "command": "{{PATH_TO_UV}}", // Run `which uv` and place the output here
+              "command": "{{PATH_TO_UV}}", 
               "args": [
                 "--directory",
                 "{{PATH_TO_SRC}}/whatsapp-mcp/whatsapp-mcp-server", // cd into the repo, run `pwd` and enter the output here + "/whatsapp-mcp-server"
