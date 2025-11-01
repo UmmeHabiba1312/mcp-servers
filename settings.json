@@ -1,0 +1,89 @@
+{
+  "mcpServers": {
+    "github": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@modelcontextprotocol/server-github"
+          ],
+          "env": {
+            "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>"
+          }
+        },
+        "whatsapp": {
+              "command": "{{PATH_TO_UV}}", // Run `which uv` and place the output here
+              "args": [
+                "--directory",
+                "{{PATH_TO_SRC}}/whatsapp-mcp/whatsapp-mcp-server", // cd into the repo, run `pwd` and enter the output here + "/whatsapp-mcp-server"
+                "run",
+                "main.py"
+              ]
+            }
+            "MongoDB": {
+                  "command": "npx",
+                  "args": ["-y", "mongodb-mcp-server@latest", "--readOnly"],
+                  "env": {
+                    "MDB_MCP_API_CLIENT_ID": "your-atlas-service-accounts-client-id",
+                    "MDB_MCP_API_CLIENT_SECRET": "your-atlas-service-accounts-client-secret"
+                  }
+                },
+    "database-mcp": {
+      "command": "uvx",
+      "args": ["database-mcp"],
+      "env": {
+        "DB_CONFIGS": "[{\"id\":\"pg_main\",\"db_type\":\"pg\",\"configuration\":{\"host\":\"12323\",\"port\":5432,\"user\":\"postgres\",\"password\":\"password\",\"dbname\":\"postgres\",\"sslmode\":\"require\"},\"description\":\"Supabase PostgreSQL Database\"},{\"id\":\"mysql_data\",\"db_type\":\"mysql\",\"configuration\":{\"host\":\"localhost\",\"port\":3306,\"user\":\"root\",\"password\":\"password\",\"database\":\"mysql\"},\"description\":\"MySQL Database\"}]"
+      },
+      "disabled": false,
+      "autoApprove": []
+    },
+    "notionApi": {
+      "command": "npx",
+      "args": ["-y", "@notionhq/notion-mcp-server"],
+      "env": {
+        "NOTION_TOKEN": "ntn_****"
+      }
+    },
+    "gtasks": {
+      "command": "/opt/homebrew/bin/node",
+      "args": ["{ABSOLUTE PATH TO FILE HERE}/dist/index.js"]
+    },
+    "discord": {
+      "command": "node",
+      "args": ["path/to/discordmcp/build/index.js"],
+      "env": {
+        "DISCORD_TOKEN": "your_discord_bot_token_here"
+      }
+    },
+    "email": {
+      "command": "D:\\conda\\envs\\mcp\\python.exe",
+      "args": [
+        "C:\\Users\\YourUserName\\Desktop\\servers\\src\\email\\src\\mcp_server_email",
+        "--dir",
+        "C:\\Users\\YourUserName\\Desktop"
+      ],
+      "env": {
+        "SENDER": "2593666979q@gmail.com",
+        "PASSWORD": "tuogk......."
+      }
+    },
+    "google-calendar": {
+      "command": "node",
+      "args": ["/ABSOLUTE/PATH/TO/YOUR/build/index.js"],
+      "env": {
+        "GOOGLE_CLIENT_ID": "your_client_id_here",
+        "GOOGLE_CLIENT_SECRET": "your_client_secret_here",
+        "GOOGLE_REDIRECT_URI": "http://localhost",
+        "GOOGLE_REFRESH_TOKEN": "your_refresh_token_here"
+      }
+    },
+    "zoom": {
+      "command": "npx",
+      "args": ["-y", "@prathamesh0901/zoom-mcp-server"],
+      "env": {
+        "ZOOM_ACCOUNT_ID": "Your Zoom Account ID",
+        "ZOOM_CLIENT_ID": "Your Zoom Client ID",
+        "ZOOM_CLIENT_SECRET": "Your Zoom Client Secret"
+      }
+    }
+  }
+}
